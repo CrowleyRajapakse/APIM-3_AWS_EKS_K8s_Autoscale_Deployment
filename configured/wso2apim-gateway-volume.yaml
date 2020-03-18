@@ -5,10 +5,14 @@ metadata:
   namespace: wso2
   labels:
     aws-availability-zone: us-east-1
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
 spec:
   capacity:
-    storage: 4Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: "/mnt/data"
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: fs-8f679af7.efs.us-east-2.amazonaws.com
+    path: /

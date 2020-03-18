@@ -3,6 +3,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: gateway-shared-synapse-configs-volume-claim
   namespace: wso2
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "aws-efs"
 spec:
   accessModes:
     - ReadWriteMany
