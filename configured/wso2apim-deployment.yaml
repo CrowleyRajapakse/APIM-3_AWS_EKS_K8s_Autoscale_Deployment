@@ -106,6 +106,15 @@ spec:
         - ip: "127.0.0.1"
           hostnames:
             - "wso2apim"
+        - ip: "35.228.218.176"
+          hostnames:
+            - "aio.wso2.com"
+        - ip: "35.228.174.52"
+          hostnames:
+            - "mysql.wso2.com"
+        - ip: "35.228.145.53"
+          hostnames:
+            - "analytics.wso2.com"
       volumes:
         - name: apim-gateway-snapse-configs-volume
           persistentVolumeClaim:
