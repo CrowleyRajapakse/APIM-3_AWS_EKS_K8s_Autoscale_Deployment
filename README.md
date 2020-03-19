@@ -130,7 +130,7 @@ You can use the following sample token.
 ```
 Then execute the following CURL command to invoke the API.
 ```sh
->> curl -X GET "https://a0f49e200650e11eaa663064b99b1f5c-734753146.us-east-2.elb.amazonaws.com:9095/petstore/v1/pet/5" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
+>> curl -X GET "https://a5e03eec469c911eaa663064b99b1f5c-877266597.us-east-2.elb.amazonaws.com:9095/petstore/v1/pet/5" -H "accept: application/xml" -H "Authorization:Bearer $TOKEN" -k
 ```
 
 Output:
