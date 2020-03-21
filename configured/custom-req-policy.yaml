@@ -1,0 +1,12 @@
+apiVersion: wso2.com/v1alpha1
+kind: RateLimiting
+metadata:
+  name: customreqpolicy
+  namespace: wso2
+spec:
+  type: advance             
+  description: Allow 500000 requests per minute   # optional
+  timeUnit: min
+  unitTime: 1
+  requestCount:
+   limit: 500000

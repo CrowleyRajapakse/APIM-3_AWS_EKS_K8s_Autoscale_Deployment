@@ -19,6 +19,7 @@ metadata:
   namespace: wso2
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       deployment: wso2apim
@@ -38,9 +39,11 @@ spec:
           image: sampathrajapakse/wso2am:3.0.0-gateway
           resources:
             limits:
-              memory: "2Gi"
+              memory: "1.5Gi"
+              cpu: "1000m"
             requests:
-              memory: "2Gi"
+              memory: "1.5Gi"
+              cpu: "700m"
           command: ["/home/wso2carbon/docker-entrypoint.sh"]
           args: ["-Dprofile=gateway-worker"]
           livenessProbe:
