@@ -40,10 +40,10 @@ spec:
           resources:
             limits:
               memory: "1.5Gi"
-              cpu: "1000m"
+              cpu: "800m"
             requests:
               memory: "1.5Gi"
-              cpu: "700m"
+              cpu: "500m"
           command: ["/home/wso2carbon/docker-entrypoint.sh"]
           args: ["-Dprofile=gateway-worker"]
           livenessProbe:
@@ -62,7 +62,7 @@ spec:
                 - nc -z localhost 32001
             initialDelaySeconds: 300
             periodSeconds: 10
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             -
               #8280 with port off set 22558
