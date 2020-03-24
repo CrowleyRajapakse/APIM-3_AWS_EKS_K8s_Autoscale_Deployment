@@ -1,0 +1,44 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  labels:
+    app: "hello"
+  name: "vehicleinfo"
+spec:
+  ports:
+  - name: "http-vehicleinfo"
+    port: 8080
+    protocol: "TCP"
+    targetPort: 8080
+  selector:
+    app: "hello"
+  type: "LoadBalancer"
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  annotations: {}
+  labels:
+    app: "hello"
+  name: "vehicleinfo"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "hello"
+  template:
+    metadata:
+      annotations: {}
+      labels:
+        app: "hello"
+    spec:
+      containers:
+      - image: "sampathrajapakse/vehicleinfo:latest"
+        imagePullPolicy: "IfNotPresent"
+        name: "vehicleinfo"
+        ports:
+        - containerPort: 8080
+          protocol: "TCP"
+      nodeSelector: {}
