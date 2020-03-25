@@ -1,0 +1,82 @@
+---
+  openapi: "3.0.1"
+  info: 
+    title: "VehicleInfo-US-Auto"
+    version: "1"
+  servers: 
+    - 
+      url: "/"
+  security: 
+    - 
+      default: []
+  paths: 
+    /entities/vehicles/: 
+      get: 
+        parameters: []
+        responses: 
+          200: 
+            description: "ok"
+        security: 
+          - 
+            default: []
+        x-auth-type: "Application & Application User"
+        x-throttling-tier: "Unlimited"
+    /entities/vehicles/{vehicle_id}: 
+      get: 
+        parameters: 
+          - 
+            name: "vehicle_id"
+            in: "path"
+            required: true
+            style: "simple"
+            explode: false
+            schema: 
+              type: "string"
+              format: "string"
+        responses: 
+          200: 
+            description: "ok"
+        security: 
+          - 
+            default: []
+        x-auth-type: "Application & Application User"
+        x-throttling-tier: "Unlimited"
+  components: 
+    securitySchemes: 
+      default: 
+        type: "oauth2"
+        flows: 
+          implicit: 
+            authorizationUrl: "https://test.com"
+            scopes: {}
+  x-wso2-auth-header: "Authorization"
+  x-throttling-tier: "Unlimited"
+  x-wso2-cors: 
+    corsConfigurationEnabled: false
+    accessControlAllowOrigins: 
+      - "*"
+    accessControlAllowCredentials: false
+    accessControlAllowHeaders: 
+      - "authorization"
+      - "Access-Control-Allow-Origin"
+      - "Content-Type"
+      - "SOAPAction"
+    accessControlAllowMethods: 
+      - "GET"
+      - "PUT"
+      - "POST"
+      - "DELETE"
+      - "PATCH"
+      - "OPTIONS"
+  x-wso2-production-endpoints: 
+    urls: 
+      - "http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080"
+    type: "http"
+  x-wso2-sandbox-endpoints: 
+    urls: 
+      - "http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080"
+    type: "http"
+  x-wso2-basePath: "/vehicle-info-auto/us/1"
+  x-wso2-transports: 
+    - "http"
+    - "https"

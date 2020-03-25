@@ -1,0 +1,94 @@
+#Copyright (c)  WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+---
+openapi: 3.0.0
+info: 
+  description: 'This is a sample server VehicleInfo US region server.'
+  title: VehicleInfo-US-Auto
+  version: "1"
+servers: 
+  - url: http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080
+  - url: http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080
+security: 
+  - petstorejwt: []
+paths: 
+  "/entities/vehicles/": 
+    get: 
+      parameters: []
+      responses: 
+        200: 
+          description: "ok"
+      security: 
+        - petstorejwt: []
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+  "/entities/vehicles/{vehicle_id}": 
+    get: 
+      parameters:  
+        - name: "vehicle_id"
+          in: "path"
+          required: true
+          style: "simple"
+          explode: false
+          schema: 
+            type: "string"
+            format: "string"
+      responses: 
+        200: 
+          description: "ok"
+      security: 
+        - petstorejwt: []
+      x-auth-type: "Application & Application User"
+      x-throttling-tier: "Unlimited"
+components: 
+  securitySchemes: 
+    default: 
+      type: "oauth2"
+      flows: 
+        implicit: 
+          authorizationUrl: "https://test.com"
+          scopes: {}
+x-wso2-auth-header: "Authorization"
+x-throttling-tier: "Unlimited"
+x-wso2-cors: 
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins: 
+    - "*"
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders: 
+    - "authorization"
+    - "Access-Control-Allow-Origin"
+    - "Content-Type"
+    - "SOAPAction"
+  accessControlAllowMethods: 
+    - "GET"
+    - "PUT"
+    - "POST"
+    - "DELETE"
+    - "PATCH"
+    - "OPTIONS"
+x-wso2-production-endpoints: 
+  urls: 
+    - "http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080"
+  type: "http"
+x-wso2-sandbox-endpoints: 
+  urls: 
+    - "http://a9638b7556d9711eaa663064b99b1f5c-1286476463.us-east-2.elb.amazonaws.com:8080"
+  type: "http"
+x-wso2-basePath: "/vehicle-info-auto/us/1"
+x-wso2-transports: 
+  - "http"
+  - "https"

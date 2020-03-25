@@ -45,7 +45,7 @@ pod "vehicle-info-mg-cf9f97b95-dltxv" deleted
 Output:
 
 ```sh
-AME                              READY   STATUS    RESTARTS   AGE
+NAME                              READY   STATUS    RESTARTS   AGE
 petstore-jwt-57d8c4ff7-wp4bv      1/1     Running   0          26h
 vehicle-info-mg-cf9f97b95-6cnnc   1/1     Running   0          43s
 vehicleinfo-996b7cf5-78x96        1/1     Running   0          22h
