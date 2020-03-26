@@ -97,7 +97,7 @@ You can see a sample deployment information in the following image.
 
 ![Sample Infp](images/sample-info.png)
 
-Here, you can see the following autoscaling policy applied
+Here, you can see the following HPA AutoScaling policy applied
 ```sh
 NAME               REFERENCE                 TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
 petstore-api-hpa   Deployment/petstore-api   <unknown>/50%   1         5         1          5d19h
@@ -107,6 +107,10 @@ Therefore, if the CPU Utilization of a pod exceeds 50% deployment will scale the
 
 Please note the "wso2apim" is the deployment of the normal WSO2 API Manager Gateway. The deployment named in the image "petstore-api" is a WSO2 API Microgateway deployment using WSO2 APIM K8s operator. 
 You can deploy the MG deployment in AWS EKS by following this guide [Microgateway Deployment in AWS EKS](https://github.com/wso2/K8s-api-operator/blob/master/docs/HowToGuide/working-with-aws.md).
+
+## Enable Cluster AutoScaling
+
+You can follow the same steps in the official AWS guide [Cluster AutoScaler](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
 
 ## Try out
 
